@@ -1,0 +1,18 @@
+<div class="bg-white box-shadow radius-5 pointer" style="max-width: 276px">
+    <div class="position-relative">
+        <img class="card-img" [src]="data.flags.svg" [alt]="data.flags.alt" loading="lazy" (load)="loaded()" />
+        <div class="position-style" skeleton skeletonWidth="100%" skeletonHeight="184px" skeletonRounding="none" *ngIf="loading"></div>
+    </div>
+    <div class="p-4">
+        <p class="fw-bold mb-3 truncate">{{ data.name.official }}</p>
+        <div class="f-14 truncate">
+            <span class="fw-bold">Population: </span><span class="opacity-75">{{ data.population }}</span>
+        </div>
+        <div class="f-14 truncate">
+            <span class="fw-bold">Region: </span><span class="opacity-75">{{ data.region }}</span>
+        </div>
+        <div class="f-14 truncate">
+            <span class="fw-bold">Capital: </span><span class="opacity-75">{{ data.capital }}</span>
+        </div>
+    </div>
+</div>

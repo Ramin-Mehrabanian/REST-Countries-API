@@ -1,0 +1,129 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('../node_modules/ng-skeleton-loading/src/assets/css/ng-skeleton-loading.css');
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+span,
+hr {
+    margin: 0;
+    color: var(--black);
+}
+
+// استفاده از حلقه برای ساخت کلاس‌های فونت سایز
+@for $i from 10 through 60 {
+    .f-#{$i} {
+        font-size: #{$i}#{px} !important;
+    }
+}
+
+// تعریف متغیرهای رنگ برای هندل کردن تم دارک و لایت
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --bg-gray: #fafafa;
+    --bg-skeleton: #dfdfdf;
+
+    .dark-mode {
+        --white: #2b3743;
+        --black: #ffffff;
+        --bg-gray: #202d36;
+        --bg-skeleton: #28353e;
+    }
+}
+
+body {
+    background-color: var(--bg-gray);
+    font-family: 'Nunito Sans', sans-serif;
+    overflow-y: scroll; //برای جلوگیری از لرزش صفحه هنگام سرچ
+    transition: 0.5s;
+}
+
+.rtl {
+    direction: rtl;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.bg-white {
+    background-color: var(--white) !important;
+}
+
+.pointer {
+    cursor: pointer !important;
+}
+
+.box-shadow {
+    box-shadow: 0 0 10px #00000015;
+}
+
+.radius-5 {
+    border-radius: 5px !important;
+}
+
+.grid-temp-column-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.grid-temp-column-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+
+.grid-gap-05 {
+    grid-gap: .5rem !important;
+}
+
+.grid-gap-4 {
+    grid-gap: 4rem !important;
+}
+
+.w-fit-content {
+    width: fit-content !important;
+}
+
+.is-loading-light {
+
+    &::before {
+        background-color: var(--bg-skeleton);
+    }
+
+    &::after {
+        width: 275% !important;
+        height: 350% !important;
+    }
+}
+
+.btn-primary {
+    border: none;
+    color: var(--black);
+    background-color: var(--white);
+    padding: .5rem 2rem;
+
+    &:hover {
+        opacity: 75%;
+    }
+}
+
+.btn-tag {
+    min-width: 95px;
+    border: none;
+    color: var(--black);
+    background-color: var(--white);
+    padding: .25rem .5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.truncate {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

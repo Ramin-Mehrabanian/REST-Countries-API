@@ -1,0 +1,56 @@
+.container-loading {
+    opacity: 0.75;
+    animation: clockwise 1000ms linear infinite;
+    margin: 10% auto 0 auto;
+}
+
+.loading-cut {
+    position: relative;
+    width: 7px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.loading-donut {
+    border: 3px solid var(--black);
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    margin: 0;
+    animation: donut-rotate 2000ms cubic-bezier(.4, 0, .22, 1) infinite;
+    transition: 0.2s;
+}
+
+@keyframes clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes donut-rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(-140deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}

@@ -1,0 +1,13 @@
+@media screen and (max-width: 992px) {
+    .grid-temp-column-4 {
+        grid-template-columns: repeat(3,1fr) !important;
+    }
+}
+
+::ng-deep app-loading {
+    
+    & .container-loading, .loading-donut {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}

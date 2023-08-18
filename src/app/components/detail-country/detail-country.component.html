@@ -1,0 +1,88 @@
+<div class="container py-5">
+
+    <div class="px-4 px-lg-0">
+
+        <button class="btn-primary box-shadow radius-5" [routerLink]="['/']">
+            <i class="fa fa-arrow-left me-2"></i>
+            Back
+        </button>
+
+        <div class="row mt-5">
+
+            <div class="col-12 col-lg-6">
+                <app-loading *ngIf="loading"></app-loading>
+                <img class="w-100 box-shadow" [src]="data.flags?.svg" />
+            </div>
+
+            <div class="col-12 col-lg-6 p-lg-5 mt-4 mt-lg-0">
+
+                <p class="f-24 fw-bold">{{ data.name?.official }}</p>
+                <div *ngIf="loading" skeleton skeletonWidth="70%" skeletonHeight="2rem" skeletonRounding="small"></div>
+
+                <div class="row mt-4">
+
+                    <div class="col-12 col-lg-6">
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Native Name:</p>
+                            <span class="truncate">{{ nativeName }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Population:</p>
+                            <span class="truncate">{{ data.population }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Region:</p>
+                            <span class="truncate">{{ data.region }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Sub Region:</p>
+                            <span class="truncate">{{ data.subregion }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Capital:</p>
+                            <span class="truncate">{{ data.capital }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Top Level Domain:</p>
+                            <span class="truncate">{{ topLevelDomain }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Currencies:</p>
+                            <span class="truncate">{{ crncName }} | {{ crncSymbol }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 f-14 mb-2 text-nowrap">
+                            <p class="fw-bold">Languages:</p>
+                            <span class="truncate">{{ language }}</span>
+                            <div *ngIf="loading" skeleton skeletonWidth="50%" skeletonHeight="1rem" skeletonRounding="none"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column flex-lg-row align-items-start gap-2 mt-5">
+                    <p class="f-14 fw-bold">Border Countries:</p>
+                    <div class="d-grid grid-temp-column-4 grid-gap-05">
+                        <button class="btn-tag box-shadow radius-5 f-10" *ngFor="let border of data.borders">{{ border }}</button>
+                        <ng-container *ngIf="loading">
+                            <div skeleton skeletonWidth="95px" skeletonHeight="23px" skeletonRounding="small" *ngFor="let i of [0,1,2,3,4,5]"></div>
+                        </ng-container>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

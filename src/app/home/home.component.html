@@ -1,0 +1,48 @@
+<div class="container pt-4 pt-lg-5">
+    <div class="d-lg-flex justify-content-between align-items-center px-2 px-lg-0">
+        <div class="search-input-container box-shadow bg-white radius-5">
+            <div class="py-3 px-4 pointer opacity-25">
+                <i class="fa fa-search" *ngIf="!loadingSearch"></i>
+                <app-loading [width]="24" [height]="24" *ngIf="loadingSearch"></app-loading>
+            </div>
+            <input class="radius-5 f-14" [(ngModel)]="search" #input (ngModelChange)="search$.next(input.value)"
+                type="text" placeholder="Search for a country..." />
+        </div>
+
+        <div ngbDropdown class="dropdown-filter bg-white box-shadow radius-5 px-4 mt-5 mt-lg-0 w-fit-content">
+            <button type="button" id="dropdownBasic1" ngbDropdownToggle *ngIf="selectRegionUser">{{ selectRegionUser ? selectRegionUser : 'Filter by Region' }}</button>
+            <button type="button" id="dropdownBasic1" ngbDropdownToggle *ngIf="selectAllUser">Filter by Region</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="bg-white box-shadow radius-5">
+                <button ngbDropdownItem (click)="selectAll()">All</button>
+                <button ngbDropdownItem (click)="selectRegion('Africa')">Africa</button>
+                <button ngbDropdownItem (click)="selectRegion('America')">America</button>
+                <button ngbDropdownItem (click)="selectRegion('Asia')"> Asia</button>
+                <button ngbDropdownItem (click)="selectRegion('Europe')">Europe</button>
+                <button ngbDropdownItem (click)="selectRegion('Oceania')">Oceania</button>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-center mt-5 f-20 opacity-25" *ngIf="notFound">Not Found</p>
+
+    <div class="d-flex flex-column d-lg-grid grid-temp-column-4 grid-gap-4 my-4 my-lg-5 px-5 px-lg-0">
+
+        <ng-container *ngIf="loading">
+            <div skeleton skeletonWidth="100%" skeletonHeight="335px" skeletonRounding="none" *ngFor="let i of [1,2,3,4,5,6,7,8]"></div>
+        </ng-container>
+
+        <ng-container *ngIf="allView">
+            <div *ngFor="let country of countries" id="countries">
+                <app-card [data]="country" [routerLink]="['/detail-country',country.cca2]"></app-card>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="regionView">
+            <div *ngFor="let item of listRegion" id="listRegion">
+                <app-card [data]="item" [routerLink]="['/detail-country',item.cca2]"></app-card>
+            </div>
+        </ng-container>
+
+    </div>
+
+</div>
